@@ -1,0 +1,14 @@
+{
+  "name": "adidas",
+  "version": "1.0.0",
+  "description": "video demo for interactive video player",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "amad ansari",
+  "license": "ISC",
+  "devDependencies": {
+    "video.js": "^7.20.3"
+  }
+}

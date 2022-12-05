@@ -1,0 +1,135 @@
+<link href="public/style.css" rel="stylesheet" />
+<script src="https://unpkg.com/video.js@7.3.0/dist/video.min.js"></script>
+<script src="newskin.js"></script>
+
+<div class="container">
+  <div class="header">Kargo News</div>
+
+  <h2>Article</h2>
+
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porttitor
+    augue quis sem gravida bibendum. Vivamus id scelerisque magna, sed luctus
+    magna. Aenean non ipsum a dolor malesuada porta. Morbi vulputate fermentum
+    dictum. Pellentesque molestie eros massa, nec aliquam est consequat sit
+    amet. Integer mollis arcu id aliquet tristique. Vestibulum et felis nunc.
+    Nam quis suscipit justo. Integer consequat justo elit, sit amet vehicula
+    massa vestibulum non. Etiam justo urna, pharetra suscipit fermentum et,
+    egestas quis metus. Praesent lobortis augue quis tempus ullamcorper.
+    Maecenas velit mauris, euismod at vestibulum a, aliquam eu ipsum. Duis mi
+    arcu, elementum vel arcu vitae, ornare consequat ligula.
+    <br /><br />
+    Donec fermentum dignissim purus vel porta. Quisque facilisis dictum ante
+    accumsan eleifend. Fusce sed mattis nulla. Duis malesuada, turpis et
+    ultricies dapibus, lectus neque ultricies nisi, faucibus efficitur neque mi
+    in ante. Sed in fringilla enim. Sed rutrum venenatis ipsum quis euismod.
+    Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+    ridiculus mus. Proin quis vulputate felis, a lacinia arcu. Cras dictum nibh
+    justo, at vehicula enim tempus ut.
+    <br /><br />
+    Proin sapien lorem, rutrum ut magna a, mollis sagittis quam. Fusce imperdiet
+    leo ut tempor sodales. In efficitur felis convallis tortor interdum viverra.
+    Morbi tincidunt, leo vel facilisis interdum, mi ante semper mauris, sed
+    accumsan metus lorem pharetra justo. Duis laoreet mi tortor, nec viverra sem
+    facilisis a. Fusce maximus ac ante in sodales. Nunc efficitur congue lacus
+    eget feugiat.
+  </p>
+
+  <div id="main" class="main">
+    <video
+      id="player"
+      class="video-js"
+      data-setup='{ "inactivityTimeout": 0 }'
+    ></video>
+  </div>
+  <br /><br />
+  <p>
+    Pellentesque enim purus, accumsan non ornare sit amet, fermentum ac nisl.
+    Nulla venenatis nisi at est vehicula sagittis. Donec sit amet purus porta,
+    gravida velit sit amet, tincidunt dui. Quisque ac risus non tortor iaculis
+    ornare. Duis in dolor consequat, rhoncus arcu eu, sagittis tellus.
+    Pellentesque erat libero, ultrices a congue id, pulvinar sed enim. Mauris
+    luctus pellentesque libero, quis sollicitudin ligula maximus non. In
+    pulvinar enim id metus varius, ut viverra tortor commodo. Mauris et volutpat
+    ipsum, at maximus massa. Etiam malesuada consequat quam. Maecenas eu porta
+    mi. Nam quam ex, euismod a tellus eu, laoreet tristique eros. Donec nec mi
+    magna. Praesent id velit lobortis, tincidunt nisl sit amet, feugiat nunc.
+    <br /><br />
+    In laoreet nisi vitae laoreet sagittis. Pellentesque vitae sapien ac nulla
+    sodales pretium. Integer sit amet lorem ut ante pretium blandit vestibulum
+    eu felis. Integer non nulla purus. Nam posuere fermentum nulla, eget mattis
+    mi molestie id. Integer vel dictum ligula. Ut gravida, metus in elementum
+    venenatis, magna risus dignissim tellus, eget scelerisque dui urna a nibh.
+    Morbi at molestie felis. Ut consectetur nunc id vulputate vulputate. Fusce
+    quis arcu ipsum. Integer mauris sem, porta a velit a, tincidunt porttitor
+    nibh. In posuere, eros non tristique dictum, ligula velit blandit nisl,
+    sollicitudin consequat leo lectus vitae velit. Sed nec odio accumsan nulla
+    gravida vestibulum sed vitae ex. Pellentesque a gravida turpis.
+  </p>
+</div>
+
+<script>
+  var Player = videojs("player", {
+    controls: true,
+    autoplay: false,
+    preload: "auto",
+    poster: "public/splash.png",
+    width: 600,
+    height: 335,
+    sources: [{ src: "public/videoupdated480.mp4", type: "video/mp4" }],
+  });
+</script>
+
+<script>
+  videojs("player").ready(function () {
+    var img = this.controlBar.addChild("Component", {}, 0);
+    img.addClass("soccer-ball");
+  });
+
+  var player = videojs("player");
+  var background = document.getElementById("main");
+
+  player.on("click", function () {
+    setTimeout(() => {
+      console.log("Delayed for 2.7 seconds");
+      background.style.backgroundImage = "url('public/soccer_goal_new.gif')";
+      background.style.backgroundRepeat = "no-repeat";
+      //background.style.backgroundImage.opacity = 0;
+
+      setTimeout(() => {
+        background.style.backgroundImage = "url('public/soccer_goal_new.jpg')";
+      }, "13000");
+    }, "2700");
+  });
+</script>
+
+<style>
+  :root {
+    font-family: sans-serif;
+  }
+
+  .video-js .soccer-ball {
+    width: 40px;
+    background: url(public/small_cleat32.gif) center center no-repeat;
+  }
+
+  .main {
+    width: 650px;
+    padding: 90px;
+  }
+
+  .container {
+    width: 800px;
+    margin: 0 auto;
+    padding: 90px;
+    padding-top: 0px;
+  }
+
+  .header {
+    text-align: center;
+    background-color: blue;
+    color: white;
+    padding: 40px;
+    font-size: 40px;
+  }
+</style>
